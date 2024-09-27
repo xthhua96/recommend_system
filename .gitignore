@@ -1,1 +1,3 @@
 .vscode/
+.model2code/tensorboard/
+__pycache__/
