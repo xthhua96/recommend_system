@@ -3,9 +3,9 @@ import functools
 
 from tqdm import tqdm
 
-from model2code.model import fm
-from model2code.show.plot_result import plot_line
-from model2code.model import ffm
+from reclearn.model import fm
+from reclearn.show.plot_result import plot_line
+from reclearn.model import ffm
 
 
 def metric_helper(func):
