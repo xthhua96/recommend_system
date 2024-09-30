@@ -10,6 +10,7 @@ from rslearn.show.plot_result import plot_line
 from rslearn.model import ffm
 from rslearn.model import wideanddeep
 from rslearn.model import dcn
+from rslearn.model import deepfm
 
 
 def metric_helper(func):
@@ -134,9 +135,30 @@ def testDCN():
     return acc
 
 
+def testDeepFM():
+    # try:
+    acc = deepfm.train(
+        data_path="./rslearn/data/train.csv",
+        verbose=True,
+        k=8,
+        reg_w=1e-5,
+        reg_v=1e-5,
+        hidden_units=[256, 128, 64],
+        output_dim=1,
+        activation="relu",
+        lr=0.01,
+        epochs=100,
+        test_size=0.2,
+    )
+    # except Exception as e:
+    #     print(f"error {e}")
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
     # testWideAndDeep()
-    testDCN()
+    # testDCN()
+    testDeepFM()
     pass
