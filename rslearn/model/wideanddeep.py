@@ -158,15 +158,7 @@ def train(
     )
     X_train = np.array(X_train).astype("float32")
     X_test = np.array(X_test).astype("float32")
-    # X_train = X_train.astype(np.float32)
-    # y_train = y_train.astype(np.float32)
-    # X_test = X_test.astype(np.float32)
-    # y_test = y_test.astype(np.float32)
 
-    # X_train = tf.convert_to_tensor(X_train, dtype=tf.float32)
-    # y_train = tf.convert_to_tensor(y_train, dtype=tf.float32)
-    # X_test = tf.convert_to_tensor(X_test, dtype=tf.float32)
-    # y_test = tf.convert_to_tensor(y_test, dtype=tf.float32)
     model = WideDeep(
         feature_columns=feature_columns,
         hidden_units=deep_hidden_units,

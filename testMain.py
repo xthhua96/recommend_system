@@ -9,6 +9,7 @@ from rslearn.model import fm
 from rslearn.show.plot_result import plot_line
 from rslearn.model import ffm
 from rslearn.model import wideanddeep
+from rslearn.model import dcn
 
 
 def metric_helper(func):
@@ -94,17 +95,39 @@ def testFFM():
     return acc
 
 
+@metric_helper
 def testWideAndDeep():
+    try:
+        acc = wideanddeep.train(
+            data_path="./rslearn/data/train.csv",
+            lr=1e-2,
+            epochs=100,
+            test_size=0.2,
+            deep_hidden_units=[256, 128, 64],
+            output_dim=1,
+            activation="relu",
+            reg=1e-5,
+        )
+    except Exception as e:
+        print(f"error {e}")
+    return acc
+
+
+@metric_helper
+def testDCN():
     # try:
-    acc = wideanddeep.train(
+    acc = dcn.train(
         data_path="./rslearn/data/train.csv",
-        lr=1e-2,
+        verbose=True,
+        reg_w=1e-5,
+        reg_b=1e-5,
+        layer_num=6,
+        hidden_units=[256, 128, 64],
+        output_dim=1,
+        lr=0.01,
+        activation="relu",
         epochs=100,
         test_size=0.2,
-        deep_hidden_units=[256, 128, 64],
-        output_dim=1,
-        activation="relu",
-        reg=1e-5,
     )
     # except Exception as e:
     #     print(f"error {e}")
@@ -114,5 +137,6 @@ def testWideAndDeep():
 if __name__ == "__main__":
     # testFM()
     # testFFM()
-    testWideAndDeep()
+    # testWideAndDeep()
+    testDCN()
     pass
