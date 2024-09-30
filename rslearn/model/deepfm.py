@@ -14,6 +14,10 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
+"""
+    paper: DeepFM: A Factorization-Machine based Neural Network for CTR Prediction
+"""
+
 
 class FMLayer(Layer):
     def __init__(self, k, reg_w, reg_v):
