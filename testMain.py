@@ -1,4 +1,5 @@
 from cgi import test
+import re
 import time
 import functools
 from traceback import print_tb
@@ -12,6 +13,7 @@ from rslearn.model import wideanddeep
 from rslearn.model import dcn
 from rslearn.model import deepfm
 from rslearn.model import ccpm
+from rslearn.model import pnn
 
 
 def metric_helper(func):
@@ -176,11 +178,32 @@ def testCCPM():
     return acc
 
 
+@metric_helper
+def testPNN():
+    acc = pnn.train(
+        data_path="./rslearn/data/train.csv",
+        embed_dim=8,
+        test_size=0.2,
+        mode="inner",
+        hidden_units=[256, 128, 64],
+        output_dim=1,
+        activation="relu",
+        dropout=0.2,
+        use_fgcnn=True,
+        lr=1e-2,
+        batch_size=32,
+        epochs=100,
+        verbose=True,
+    )
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
     # testWideAndDeep()
     # testDCN()
     # testDeepFM()
-    testCCPM()
+    # testCCPM()
+    # testPNN()
     pass
