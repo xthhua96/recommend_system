@@ -10,6 +10,7 @@ from sklearn.metrics import accuracy_score
 
 
 """
+    Paper: Fast Context-aware Recommendationswith Factorization Machines
     关于FM算法原理的推荐讲解：https://www.cnblogs.com/techflow/p/13967844.html
 """
 

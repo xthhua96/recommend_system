@@ -10,6 +10,10 @@ from keras.models import Model
 from keras.optimizers.legacy import SGD
 from keras import losses
 
+"""
+    Paper: Field-aware Factorization Machines for CTR Prediction
+"""
+
 
 class FFM_Layer(Layer):
     def __init__(self, feature_columns, k, w_reg=1e-4, v_reg=1e-4):

@@ -14,7 +14,7 @@ from sklearn.metrics import accuracy_score
 
 
 """
-    Paper: Deep_Crossing_Web_Scale_Modeling_Without_Manually_Crafted_Combinatorial_Features
+    Paper: Deep & Cross Network for Ad Click Predictions
 """
 
 
@@ -194,6 +194,7 @@ def train(
 
         grad = tape.gradient(loss, model.trainable_variables)
         optimizer.apply_gradients(zip(grad, model.trainable_variables))
+
     pre = model(X_test)
     pre = [1 if p > 0.5 else 0 for p in pre]
     acc = accuracy_score(y_true=y_test, y_pred=pre)

@@ -16,6 +16,10 @@ from keras.models import Model
 from keras.optimizers.legacy import SGD
 from keras import losses
 
+"""
+    Paper: Product-based Neural Networks for User Response Prediction
+"""
+
 
 class DNN_layer(Layer):
     def __init__(self, hidden_units, output_dim, activation="relu", dropout=0.2):

@@ -14,6 +14,10 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+"""
+    Paper: A Convolutional Click Prediction Model
+"""
+
 
 class DNN(Layer):
     def __init__(self, hidden_units, out_dim=1, activation="relu", dropout=0.0):
