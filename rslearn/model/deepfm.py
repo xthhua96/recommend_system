@@ -91,8 +91,8 @@ class DeepFM(Model):
         )
 
     def call(self, inputs):
-        dense_inputs, sparse_inputs = inputs[:, 13], inputs[:, 13:]
-
+        dense_inputs, sparse_inputs = inputs[:, :13], inputs[:, 13:]
+        # embedding
         sparse_embed = tf.concat(
             [
                 self.embed_layers["embed_{}".format(i)](sparse_inputs[:, i])
@@ -101,6 +101,7 @@ class DeepFM(Model):
             axis=1,
         )
         x = tf.concat([dense_inputs, sparse_embed], axis=-1)
+
         fm_output = self.FM(x)
         dense_output = self.Dense(x)
         output = tf.nn.sigmoid(0.5 * (fm_output + dense_output))
