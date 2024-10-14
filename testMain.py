@@ -11,6 +11,7 @@ from rslearn.model import ffm
 from rslearn.model import wideanddeep
 from rslearn.model import dcn
 from rslearn.model import deepfm
+from rslearn.model import ccpm
 
 
 def metric_helper(func):
@@ -135,6 +136,7 @@ def testDCN():
     return acc
 
 
+@metric_helper
 def testDeepFM():
     # try:
     acc = deepfm.train(
@@ -155,10 +157,30 @@ def testDeepFM():
     return acc
 
 
+@metric_helper
+def testCCPM():
+    acc = ccpm.train(
+        data_path="./rslearn/data/train.csv",
+        output_dim=1,
+        lr=1e-2,
+        activation="relu",
+        batch_size=32,
+        epochs=100,
+        test_size=0.2,
+        dropout=0.2,
+        hidden_units=[128],
+        filters=[4, 4],
+        kernel_width=[6, 5],
+        verbose=True,
+    )
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
     # testWideAndDeep()
     # testDCN()
-    testDeepFM()
+    # testDeepFM()
+    testCCPM()
     pass

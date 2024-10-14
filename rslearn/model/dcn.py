@@ -189,8 +189,8 @@ def train(
             loss = tf.reduce_mean(
                 losses.binary_crossentropy(y_true=y_train, y_pred=y_pre)
             )
-            if verbose:
-                print("epoch: {}\tloss: {:.6f}".format(epoch, loss.numpy()))
+        if verbose:
+            print("epoch: {}\tloss: {:.6f}".format(epoch, loss.numpy()))
 
         grad = tape.gradient(loss, model.trainable_variables)
         optimizer.apply_gradients(zip(grad, model.trainable_variables))
