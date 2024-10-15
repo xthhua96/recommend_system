@@ -15,6 +15,7 @@ from rslearn.model import pnn
 from rslearn.model import dc
 from rslearn.model import afm
 from rslearn.model import nfm
+from rslearn.model import xdeepfm
 
 
 def metric_helper(func):
@@ -246,6 +247,24 @@ def testNFM():
     return acc
 
 
+@metric_helper
+def testxDeepFM():
+    acc = xdeepfm.train(
+        data_path="./rslearn/data/train.csv",
+        embed_dim=8,
+        test_size=0.2,
+        cin_size=[128, 128],
+        hidden_units=[256, 128, 64],
+        out_dim=1,
+        dropout=0.5,
+        lr=1e-3,
+        epochs=100,
+        batch_size=64,
+        verbose=True,
+    )
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
@@ -256,5 +275,6 @@ if __name__ == "__main__":
     # testPNN()
     # testDC()
     # testAFM()
-    testNFM()
+    # testNFM()
+    testxDeepFM()
     pass
