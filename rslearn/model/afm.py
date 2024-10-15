@@ -12,6 +12,10 @@ from keras import losses
 
 import tensorflow as tf
 
+"""
+    Paper: Attentional Factorization Machines: Learning the Weight of Feature Interactions via Attention Networks
+"""
+
 
 class Interaction_layer(Layer):
     """
@@ -79,7 +83,9 @@ class AFM_layer(Layer):
             self.embed_layer["emb_" + str(i)](sparse_inputs[:, i])
             for i in range(sparse_inputs.shape[1])
         ]  # list
+
         embed = tf.convert_to_tensor(embed)
+        print(embed.shape)
         embed = tf.transpose(embed, [1, 0, 2])  # [None, 26，k]
 
         # Pair-wise Interaction

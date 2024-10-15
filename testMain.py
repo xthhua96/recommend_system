@@ -1,3 +1,4 @@
+from cgi import test
 import time
 import functools
 
@@ -13,6 +14,7 @@ from rslearn.model import ccpm
 from rslearn.model import pnn
 from rslearn.model import dc
 from rslearn.model import afm
+from rslearn.model import nfm
 
 
 def metric_helper(func):
@@ -222,6 +224,23 @@ def testAFM():
         mode="att",  # avg, max
         lr=1e-2,
         epochs=100,
+        verbose=False,
+    )
+    return acc
+
+
+@metric_helper
+def testNFM():
+    acc = nfm.train(
+        data_path="./rslearn/data/train.csv",
+        embed_dim=8,
+        test_size=0.2,
+        hidden_units=[256, 128, 64],
+        output_dim=1,
+        activation="relu",
+        dropout=0.3,
+        lr=1e-2,
+        epochs=100,
         verbose=True,
     )
     return acc
@@ -236,5 +255,6 @@ if __name__ == "__main__":
     # testCCPM()
     # testPNN()
     # testDC()
-    testAFM()
+    # testAFM()
+    testNFM()
     pass

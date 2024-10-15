@@ -133,6 +133,7 @@ def create_criteo_dataset(file_path, embed_dim=8, test_size=0.2):
 
     # 拼接到数据集供wide使用
     X = pd.concat([X, onehot_data], axis=1)
+    print(X.shape)
 
     feature_columns = [[denseFeature(feat) for feat in dense_features]] + [
         [sparseFeature(feat, X[feat].nunique(), embed_dim) for feat in sparse_features]
