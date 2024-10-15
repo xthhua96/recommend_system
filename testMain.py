@@ -12,6 +12,7 @@ from rslearn.model import deepfm
 from rslearn.model import ccpm
 from rslearn.model import pnn
 from rslearn.model import dc
+from rslearn.model import afm
 
 
 def metric_helper(func):
@@ -212,6 +213,20 @@ def testDC():
     return acc
 
 
+@metric_helper
+def testAFM():
+    acc = afm.train(
+        data_path="./rslearn/data/train.csv",
+        embed_dim=8,
+        test_size=0.2,
+        mode="att",  # avg, max
+        lr=1e-2,
+        epochs=100,
+        verbose=True,
+    )
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
@@ -220,5 +235,6 @@ if __name__ == "__main__":
     # testDeepFM()
     # testCCPM()
     # testPNN()
-    testDC()
+    # testDC()
+    testAFM()
     pass
