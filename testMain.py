@@ -4,7 +4,7 @@ import functools
 
 from tqdm import tqdm
 
-from rslearn.model import fm
+from rslearn.model import autoint, fm
 from rslearn.show.plot_result import plot_line
 from rslearn.model import ffm
 from rslearn.model import wideanddeep
@@ -16,6 +16,7 @@ from rslearn.model import dc
 from rslearn.model import afm
 from rslearn.model import nfm
 from rslearn.model import xdeepfm
+from rslearn.model import autoint
 
 
 def metric_helper(func):
@@ -265,6 +266,26 @@ def testxDeepFM():
     return acc
 
 
+@metric_helper
+def testAutoInt():
+    acc = autoint.train(
+        data_path="./rslearn/data/train.csv",
+        embed_dim=64,
+        test_size=0.2,
+        hidden_units=[256, 128, 64],
+        activation="relu",
+        dnn_dropout=0.2,
+        n_heads=4,
+        head_dim=16,
+        att_dropout=0.2,
+        lr=1e-2,
+        batch_size=32,
+        epochs=100,
+        verbose=True,
+    )
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
@@ -276,5 +297,6 @@ if __name__ == "__main__":
     # testDC()
     # testAFM()
     # testNFM()
-    testxDeepFM()
+    # testxDeepFM()
+    testAutoInt()
     pass
