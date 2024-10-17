@@ -17,6 +17,7 @@ from rslearn.model import afm
 from rslearn.model import nfm
 from rslearn.model import xdeepfm
 from rslearn.model import autoint
+from rslearn.model import fgcnn
 
 
 def metric_helper(func):
@@ -286,6 +287,28 @@ def testAutoInt():
     return acc
 
 
+@metric_helper
+def testFGCNN():
+    acc = fgcnn.train(
+        data_path="./rslearn/data/train.csv",
+        embed_dim=8,
+        test_size=0.2,
+        hidden_units=[128],
+        output_dim=1,
+        activation="relu",
+        dropout=0.2,
+        filters=[14, 16],
+        kernel_width=[7, 7],
+        dnn_maps=[3, 3],
+        pooling_width=[2, 2],
+        lr=1e-2,
+        batch_size=32,
+        epochs=100,
+        verbose=True,
+    )
+    return acc
+
+
 if __name__ == "__main__":
     # testFM()
     # testFFM()
@@ -298,5 +321,6 @@ if __name__ == "__main__":
     # testAFM()
     # testNFM()
     # testxDeepFM()
-    testAutoInt()
+    # testAutoInt()
+    testFGCNN()
     pass
