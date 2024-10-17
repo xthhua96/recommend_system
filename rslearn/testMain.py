@@ -1,23 +1,22 @@
-from cgi import test
 import time
 import functools
 
 from tqdm import tqdm
 
-from rslearn.model import autoint, fm
-from rslearn.show.plot_result import plot_line
-from rslearn.model import ffm
-from rslearn.model import wideanddeep
-from rslearn.model import dcn
-from rslearn.model import deepfm
-from rslearn.model import ccpm
-from rslearn.model import pnn
-from rslearn.model import dc
-from rslearn.model import afm
-from rslearn.model import nfm
-from rslearn.model import xdeepfm
-from rslearn.model import autoint
-from rslearn.model import fgcnn
+from model import autoint, fm
+from show.plot_result import plot_line
+from model import ffm
+from model import wideanddeep
+from model import dcn
+from model import deepfm
+from model import ccpm
+from model import pnn
+from model import dc
+from model import afm
+from model import nfm
+from model import xdeepfm
+from model import autoint
+from model import fgcnn
 
 
 def metric_helper(func):
@@ -45,7 +44,7 @@ def testFMKAndAcc():
         for i in tqdm(range(10, 100, 5)):
             accs = [
                 fm.train(
-                    data_path="./rslearn/data/train.csv",
+                    data_path="./data/train.csv",
                     k=i,
                     w_reg=1e-5,
                     v_reg=1e-5,
@@ -73,7 +72,7 @@ def testFMKAndAcc():
 def testFM():
     try:
         acc = fm.train(
-            data_path="./rslearn/data/train.csv",
+            data_path="./data/train.csv",
             k=10,
             w_reg=1e-5,
             v_reg=1e-5,
@@ -90,7 +89,7 @@ def testFM():
 def testFFM():
     try:
         acc = ffm.train(
-            data_path="./rslearn/data/train.csv",
+            data_path="./data/train.csv",
             k=10,
             w_reg=1e-5,
             v_reg=1e-5,
@@ -107,7 +106,7 @@ def testFFM():
 def testWideAndDeep():
     try:
         acc = wideanddeep.train(
-            data_path="./rslearn/data/train.csv",
+            data_path="./data/train.csv",
             lr=1e-2,
             epochs=100,
             test_size=0.2,
@@ -125,7 +124,7 @@ def testWideAndDeep():
 def testDCN():
     # try:
     acc = dcn.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         verbose=True,
         reg_w=1e-5,
         reg_b=1e-5,
@@ -146,7 +145,7 @@ def testDCN():
 def testDeepFM():
     # try:
     acc = deepfm.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         verbose=True,
         k=8,
         reg_w=1e-5,
@@ -166,7 +165,7 @@ def testDeepFM():
 @metric_helper
 def testCCPM():
     acc = ccpm.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         output_dim=1,
         lr=1e-2,
         activation="relu",
@@ -185,7 +184,7 @@ def testCCPM():
 @metric_helper
 def testPNN():
     acc = pnn.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=8,
         test_size=0.2,
         mode="inner",
@@ -205,7 +204,7 @@ def testPNN():
 @metric_helper
 def testDC():
     acc = dc.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=8,
         test_size=0.2,
         k=32,
@@ -221,7 +220,7 @@ def testDC():
 @metric_helper
 def testAFM():
     acc = afm.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=8,
         test_size=0.2,
         mode="att",  # avg, max
@@ -235,7 +234,7 @@ def testAFM():
 @metric_helper
 def testNFM():
     acc = nfm.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=8,
         test_size=0.2,
         hidden_units=[256, 128, 64],
@@ -252,7 +251,7 @@ def testNFM():
 @metric_helper
 def testxDeepFM():
     acc = xdeepfm.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=8,
         test_size=0.2,
         cin_size=[128, 128],
@@ -270,7 +269,7 @@ def testxDeepFM():
 @metric_helper
 def testAutoInt():
     acc = autoint.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=64,
         test_size=0.2,
         hidden_units=[256, 128, 64],
@@ -290,7 +289,7 @@ def testAutoInt():
 @metric_helper
 def testFGCNN():
     acc = fgcnn.train(
-        data_path="./rslearn/data/train.csv",
+        data_path="./data/train.csv",
         embed_dim=8,
         test_size=0.2,
         hidden_units=[128],
