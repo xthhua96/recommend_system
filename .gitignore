@@ -2,3 +2,6 @@
 .model2code/tensorboard/
 __pycache__/
 tensorboard/
+.recbole/**/saved/
+.recbole/**/log/
+.recbole/**/log_tensorboard/
