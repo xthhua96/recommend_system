@@ -307,3 +307,21 @@ Mon 21 Oct 2024 16:40:41 INFO  epoch 41 training [time: 22.03s, train loss: 134.
 Mon 21 Oct 2024 16:40:42 INFO  epoch 41 evaluating [time: 0.07s, valid_score: 0.045700]
 Mon 21 Oct 2024 16:40:42 INFO  valid result: 
 recall@10 : 0.1379    mrr@10 : 0.0457    ndcg@10 : 0.067    hit@10 : 0.1379    precision@10 : 0.0138
+Mon 21 Oct 2024 16:41:05 INFO  epoch 42 training [time: 23.28s, train loss: 134.3878]
+Mon 21 Oct 2024 16:41:05 INFO  epoch 42 evaluating [time: 0.05s, valid_score: 0.042100]
+Mon 21 Oct 2024 16:41:05 INFO  valid result: 
+recall@10 : 0.1315    mrr@10 : 0.0421    ndcg@10 : 0.0626    hit@10 : 0.1315    precision@10 : 0.0131
+Mon 21 Oct 2024 16:41:05 INFO  Finished training, best eval result in epoch 31
+Mon 21 Oct 2024 16:41:05 INFO  Loading model structure and parameters from saved/GRU4Rec-Oct-21-2024_16-22-47.pth
+Mon 21 Oct 2024 16:41:06 INFO  The running environment of this training is as follows:
++-------------+----------------+
+| Environment |     Usage      |
++=============+================+
+| CPU         |    22.30 %     |
++-------------+----------------+
+| GPU         |   0.0 / 0.0    |
++-------------+----------------+
+| Memory      | 2.25 G/16.00 G |
++-------------+----------------+
+Mon 21 Oct 2024 16:41:06 INFO  best valid : OrderedDict([('recall@10', 0.1357), ('mrr@10', 0.0506), ('ndcg@10', 0.07), ('hit@10', 0.1357), ('precision@10', 0.0136)])
+Mon 21 Oct 2024 16:41:06 INFO  test result: OrderedDict([('recall@10', 0.1092), ('mrr@10', 0.0323), ('ndcg@10', 0.05), ('hit@10', 0.1092), ('precision@10', 0.0109)])
