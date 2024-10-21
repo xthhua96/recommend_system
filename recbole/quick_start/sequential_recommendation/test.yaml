@@ -12,7 +12,10 @@ MAX_ITEM_LIST_LENGTH: 50
 embedding_size: 64
 hidden_size: 128
 num_layers: 1
-dropout_prob: 0.3
+dropout_prob: 0.1
+freeze_kg: True
+gamma: 10.0
+loss_type: 
 loss_type: 'CE'
 
 # Training and evaluation config
