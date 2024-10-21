@@ -11,6 +11,6 @@ tensorboard/
 .recbole/quick_start/knowledgebased_recommendation/saved/
 .recbole/quick_start/knowledgebased_recommendation/log/
 .recbole/quick_start/knowledgebased_recommendation/log_tensorboard/
-.recbole/quick_start/sequential_recommendation/saved/
-.recbole/quick_start/sequential_recommendation/log/
-.recbole/quick_start/sequential_recommendation/log_tensorboard/
+.recbole/quick_start/sequential_recommendation/saved/*
+.recbole/quick_start/sequential_recommendation/log/*
+.recbole/quick_start/sequential_recommendation/log_tensorboard/*
