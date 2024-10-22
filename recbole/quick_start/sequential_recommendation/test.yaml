@@ -9,13 +9,16 @@ LIST_SUFFIX: _list
 MAX_ITEM_LIST_LENGTH: 50
 
 # model config
-embedding_size: 64
-hidden_size: 128
-num_layers: 1
-dropout_prob: 0.1
-freeze_kg: True
-gamma: 10.0
-loss_type: 
+hidden_size: 64
+inner_size: 256
+n_layers: 2
+n_heads: 2
+hidden_dropout_prob: 0.5
+attn_dropout_prob: 0.5
+hidden_act: "gelu"
+layer_norm_eps: 1e-12
+initializer_range: 0.02
+mask_ratio: 0.2
 loss_type: 'CE'
 
 # Training and evaluation config

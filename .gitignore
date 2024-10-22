@@ -1,5 +1,4 @@
 .vscode/
-.model2code/tensorboard/
 __pycache__/
 tensorboard/
 recbole/**/saved/
